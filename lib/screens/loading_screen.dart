@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
+import 'location_screen.dart';
 
 
 const String apiKey = "6053fb9ebacfd4868781ad9e892236ee";
@@ -30,6 +31,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
 
     var wetherData = await netwookHelper.getData();
+    
+    Navigator.push(context, MaterialPageRoute(
+      builder: (context){
+        return LoadingScreen()
+      }
+    ),);
   }
 
   @override
