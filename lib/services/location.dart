@@ -1,5 +1,9 @@
 import 'package:geolocator/geolocator.dart';
 
+class Location{
+
+}
+
 void getLocation() async{
   try {
     Position position = await Geolocator().getCurrentPosition(
