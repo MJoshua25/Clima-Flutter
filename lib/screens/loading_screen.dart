@@ -30,11 +30,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getData() async{
-    Http.Response response = await Http.get('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
-    if (response.statusCode == 200){
-      String data = response.body;
 
-      var decodeData = jsonDecode(data);
       double longitude = decodeData['coord']['lon'];
       double latitude = decodeData['coord']['lat'];
 
