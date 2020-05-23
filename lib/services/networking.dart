@@ -3,5 +3,6 @@ import 'dart:convert';
 
 class NetwookHelper{
 
+  final String url;
 
 }
