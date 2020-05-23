@@ -5,10 +5,15 @@ class NetwookHelper{
   NetwookHelper(this.url);
 
   final String url;
+  void getData() async{
+    Http.Response response = await Http.get(url);
+    if (response.statusCode == 200){
+      String data = response.body;
 
-  Http.Response response = await Http.get('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
-  if (response.statusCode == 200){
-  String data = response.body;
+      var decodeData = jsonDecode(data);
 
-  var decodeData = jsonDecode(data);
+    }else{
+      print(response.statusCode);
+    }
+  }
 }

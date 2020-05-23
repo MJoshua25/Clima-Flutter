@@ -30,7 +30,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getData() async{
-
+      'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey'
       double longitude = decodeData['coord']['lon'];
       double latitude = decodeData['coord']['lat'];
 
@@ -46,9 +46,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       print(description);
       print(city);
 
-    }else{
-      print(response.statusCode);
-    }
+
   }
 
   @override
