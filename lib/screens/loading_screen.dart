@@ -28,7 +28,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     latitude = location.latitude;
 
     NetwookHelper netwookHelper = NetwookHelper(
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric');
 
     var weatherData = await netwookHelper.getData();
 
