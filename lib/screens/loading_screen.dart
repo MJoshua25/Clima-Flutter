@@ -25,11 +25,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
     await location.getCurrentLocation();
     longitude =location.longitude;
     latitude = location.latitude;
+    print(latitude);
+    print(longitude);
     getData();
   }
 
   void getData() async{
-    Http.Response response = await Http.get('api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
+    Http.Response response = await Http.get('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
     if (response.statusCode == 200){
       String data = response.body;
 
@@ -47,6 +49,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       String city = decodeData['name'];
 
       print(description);
+      print(city);
 
     }else{
       print(response.statusCode);
