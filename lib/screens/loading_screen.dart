@@ -28,17 +28,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
     Http.Response response = await Http.get('https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=439d4b804bc8187953eb36d2a8c26a02');
     if (response.statusCode == 200){
       String data = response.body;
-      var longitude = jsonDecode(data)['coord']['lon'];
-      var latitude = jsonDecode(data)['coord']['lat'];
+
+      var decodeData = jsonDecode(data);
+      var longitude = decodeData['coord']['lon'];
+      var latitude = decodeData['coord']['lat'];
 
       print(longitude);
 
-      var description = jsonDecode(data)['weather'][0]['description'];
-      var id = jsonDecode(data)['weather'][0]['id'];
+      var description = decodeData['weather'][0]['description'];
+      var condition = decodeData['weather'][0]['id'];
 
-      var temperature = jsonDecode(data)['main']['temp'];
+      var temperature = decodeData['main']['temp'];
 
-      var city = jsonDecode(data)['name'];
+      var city = decodeData['name'];
 
       print(description);
 
