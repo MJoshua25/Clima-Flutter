@@ -20,6 +20,11 @@ class _LocationScreenState extends State<LocationScreen> {
     print(widget.locationWeather);
   }
 
+  void updateUI(dynamic weatherData){
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
