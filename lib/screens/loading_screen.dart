@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
-import 'package:http/http.dart' as Http;
-import 'dart:convert';
+
 
 const String apiKey = "6053fb9ebacfd4868781ad9e892236ee";
 
