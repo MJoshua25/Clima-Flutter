@@ -5,14 +5,18 @@ class Location{
   double latitude;
   double longitude;
 
+  void getCurrentLocation() async {
+    try {
+      Position position = await Geolocator().getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.low);
+      print(position);
+    } catch (e){
+      print(e);
+    }
+  }
+
 }
 
 void getLocation() async{
-  try {
-    Position position = await Geolocator().getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low);
-    print(position);
-  } catch (e){
-    print(e);
-  }
+
 }
