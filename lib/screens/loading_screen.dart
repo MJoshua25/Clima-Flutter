@@ -27,28 +27,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
     latitude = location.latitude;
 
     NetwookHelper netwookHelper = NetwookHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
-    netwookHelper.getData();
-    double longitude = decodeData['coord']['lon'];
-    double latitude = decodeData['coord']['lat'];
-
-    print(longitude);
-
-    String description = decodeData['weather'][0]['description'];
-    int condition = decodeData['weather'][0]['id'];
-
-    double temperature = decodeData['main']['temp'];
-
-    String city = decodeData['name'];
-
-    print(description);
-    print(city);
-  }
-
-  void getData() async{
 
 
-
-
+    var wetherData = await netwookHelper.getData();
   }
 
   @override
