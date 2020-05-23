@@ -3,7 +3,6 @@ import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 import 'location_screen.dart';
 
-
 const String apiKey = "6053fb9ebacfd4868781ad9e892236ee";
 
 class LoadingScreen extends StatefulWidget {
@@ -21,27 +20,27 @@ class _LoadingScreenState extends State<LoadingScreen> {
     getLocationData();
   }
 
-  void getLocationData() async{
+  void getLocationData() async {
     Location location = Location();
     await location.getCurrentLocation();
-    longitude =location.longitude;
+    longitude = location.longitude;
     latitude = location.latitude;
 
-    NetwookHelper netwookHelper = NetwookHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
-
+    NetwookHelper netwookHelper = NetwookHelper(
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
     var wetherData = await netwookHelper.getData();
-    
-    Navigator.push(context, MaterialPageRoute(
-      builder: (context){
-        return LoadingScreen()
-      }
-    ),);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return LoadingScreen();
+      }),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    );
+    return Scaffold();
   }
 }
