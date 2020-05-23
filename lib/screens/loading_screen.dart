@@ -30,12 +30,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     NetwookHelper netwookHelper = NetwookHelper(
         'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
 
-    var wetherData = await netwookHelper.getData();
+    var weatherData = await netwookHelper.getData();
 
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) {
-        return LocationScreen();
+        return LocationScreen(locationWeather: weatherData,);
       }),
     );
   }
