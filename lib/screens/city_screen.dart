@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 
@@ -46,6 +47,9 @@ class _CityScreenState extends State<CityScreen> {
                     hintText: 'Enter City Name',
                     hintStyle: TextStyle(
                       color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0),),
                     ),
                   ),
                 ),
