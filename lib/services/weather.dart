@@ -6,7 +6,7 @@ const openWeatherMapUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
 
-  void getLocationWeather() async{
+  Future<dynamic> getLocationWeather() async{
     Location location = Location();
     await location.getCurrentLocation();
 
@@ -14,6 +14,7 @@ class WeatherModel {
         '$openWeatherMapUrl?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
 
     var weatherData = await netwookHelper.getData();
+    return weatherData;
   }
 
   String getWeatherIcon(int condition) {
