@@ -4,7 +4,6 @@ import 'package:clima/services/weather.dart';
 import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
-
   LocationScreen({this.locationWeather});
 
   final locationWeather;
@@ -27,19 +26,19 @@ class _LocationScreenState extends State<LocationScreen> {
     updateUI(widget.locationWeather);
   }
 
-  void updateUI(dynamic weatherData){
+  void updateUI(dynamic weatherData) {
     setState(() {
-      if(weatherData == null){
+      if (weatherData == null) {
         temperature = 0;
         weatherIcon = 'error';
         cityName = '';
         weatherMessage = 'Unable to get weather data';
         return;
       }
-      try{
+      try {
         double temp = weatherData['main']['temp'];
         temperature = temp.toInt();
-      } catch (e){
+      } catch (e) {
         temperature = weatherData['main']['temp'];
       }
 
@@ -49,7 +48,6 @@ class _LocationScreenState extends State<LocationScreen> {
       weatherMessage = weatherModel.getMessage(temperature);
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -73,9 +71,9 @@ class _LocationScreenState extends State<LocationScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   FlatButton(
-                    onPressed: () async{
-                        var weatherData = await weatherModel.getLocationWeather();
-                        updateUI(weatherData);
+                    onPressed: () async {
+                      var weatherData = await weatherModel.getLocationWeather();
+                      updateUI(weatherData);
                     },
                     child: Icon(
                       Icons.near_me,
@@ -83,12 +81,14 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   FlatButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context){
+                    onPressed: () async {
+                      var typedName = await Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
                           return CityScreen();
-                        }
-                      ),);
+                        }),
+                      );
+                      print(typedName);
                     },
                     child: Icon(
                       Icons.location_city,
