@@ -17,6 +17,7 @@ class _LocationScreenState extends State<LocationScreen> {
   int temperature;
   String weatherIcon;
   String cityName;
+  String weatherMessage;
 
   @override
   void initState() {
@@ -31,6 +32,7 @@ class _LocationScreenState extends State<LocationScreen> {
     var condition = weatherData['weather'][0]['id'];
     weatherIcon = weatherModel.getWeatherIcon(condition);
     cityName = weatherData['name'];
+    weatherMessage = weatherModel.getMessage(temperature);
   }
 
 
@@ -80,7 +82,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kTempTextStyle,
                     ),
                     Text(
-                      '$weatherIcon️',
+                      weatherIcon,
                       style: kConditionTextStyle,
                     ),
                   ],
@@ -89,7 +91,7 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: EdgeInsets.only(right: 15.0),
                 child: Text(
-                  "It's 🍦 time in San Francisco!",
+                  "$weatherMessage in $cityName!",
                   textAlign: TextAlign.right,
                   style: kMessageTextStyle,
                 ),
