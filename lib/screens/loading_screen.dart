@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'location_screen.dart';
 
-const String apiKey = "6053fb9ebacfd4868781ad9e892236ee";
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -17,13 +16,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocationData() async {
-    Location location = Location();
-    await location.getCurrentLocation();
-
-    NetwookHelper netwookHelper = NetwookHelper(
-        'https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
-
-    var weatherData = await netwookHelper.getData();
 
     Navigator.push(
       context,
